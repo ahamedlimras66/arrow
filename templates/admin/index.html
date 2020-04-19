@@ -1,0 +1,9 @@
+{% extends 'admin/master.html' %}
+{% block head_css %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='styles.css')}}">
+{% endblock %}
+{% block body %}
+  <button onclick="window.location.href = '/';" class="btn btn-primary" type="submit">Back to app</button>
+  <button onclick="window.location.href = '/logout';" class="btn btn-primary" type="submit">Logout</button>
+{% endblock body%}
