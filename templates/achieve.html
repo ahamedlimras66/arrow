@@ -10,7 +10,7 @@
       <meta name="keywords" content="">
       <meta name="team" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+   <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="static/css/bootstrap.min.css">
       <link rel="stylesheet" href="static/css/owl.carousel.css">
       <link rel="stylesheet" href="static/css/owl.theme.default.min.css">
@@ -18,6 +18,53 @@
 
       <!-- MAIN CSS -->
       <link rel="stylesheet" href="static/css/tooplate-style.css">
+
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
 
  </head>
  <body>
@@ -56,7 +103,7 @@
  					
  						  </a></li>
                           <li><a href="/contact" class="smoothScroll">CONTACT</a></li>
-						   <li><a href="/gal" class="smoothScroll">GALLERY</a></li>
+						   <li><a href="/gallery" class="smoothScroll">GALLERY</a></li>
                      </ul>
                      <ul class="nav navbar-nav navbar-right">
                          
@@ -76,7 +123,7 @@
                      <div class="col-md-offset-3 col-md-6 col-sm-12">
                           <div class="home-info">
                                <h3>ARROW COACHING CENTER</h3>
-                               <h1>ACHIEVEMENTS IN THIS YEAR</h1>
+                              
                                <form action="/login_check" method="post" class="online-form">
                                  
                               </form>
@@ -89,7 +136,27 @@
                 </div>
            </div>
       </section>
-
+ <center><h1>ACHIEVEMENTS IN THIS YEAR</h1><center>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <img src="static/images/n1.jpg" alt="Avatar" style="width:300px;height:300px;">
+    </div>
+    <div class="flip-card-back">
+		<br>
+      <h1>Kavitha</h1> 
+	  <br>
+	  
+      <h2>Registration Department</h1> 
+     
+    </div>
+  </div>
+</div>
 
     
 

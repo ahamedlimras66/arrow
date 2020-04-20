@@ -87,13 +87,12 @@ def onlinet():
 @app.route('/contact')
 def contact():
     return render_template("contact.html") 
-    @app.route('/achieve')
-    def achievement():
-        return render_template("achieve.html")
-        
-        @app.route('/gallery')
-        def gallery():
-            return render_template("gal.html")
+@app.route('/achieve')
+def achievement():
+    return render_template("achieve.html")
+@app.route('/gallery')
+def gallery():
+    return render_template("gal.html")
    
 
 # To Download course material by code
