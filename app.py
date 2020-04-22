@@ -19,42 +19,46 @@ login_manager.login_view = 'login'
 def create_tables():
 	db.create_all()
 	if User.query.filter_by(username="root").first() is None:
-		adminID = User(username="root", password="root")
+		adminID = User(username="root", password="root",role=1)
 		db.session.add(adminID)
-	db.session.commit()
+		db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
 	return User.query.get(int(user_id))
 
 class MyAdminIndexView(AdminIndexView):
-    def is_accessible(self):
-        if current_user.is_authenticated and (current_user.username == 'root'):
-            return True
-    def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for('login', next=request.url))
-
+	def is_accessible(self):
+		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+			return True
+	def inaccessible_callback(self, name, **kwargs):
+		return redirect(url_for('login', next=request.url))
 
 class MyModelView(ModelView):
-    def is_accessible(self):
-        if current_user.is_authenticated and (current_user.username == 'root'):
-            return True
+	def is_accessible(self):
+		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+			return True
+	def inaccessible_callback(self, name, **kwargs):
+		return redirect(url_for('login', next=request.url))
 
-    def inaccessible_callback(self, name, **kwargs):
-        return redirect(url_for('login', next=request.url))
-
-class UserRoleView(MyModelView):
-    column_list = ('role', 'user.username')
 
 admin = Admin(app, index_view=MyAdminIndexView())
-admin.add_view(ModelView(User, db.session))
-admin.add_view(UserRoleView(UserRole, db.session))
+admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(ExamLink, db.session))
+admin.add_view(MyModelView(Number, db.session))
+
 
 
 # Home page
 @app.route('/')
 def home():
 	return render_template("index.html")
+@app.route('/save_number', methods=['POST', 'GET'])
+def save_number():
+	number = Number(number=request.form['number'],name="unknow")
+	db.session.add(number)
+	db.session.commit()
+	return redirect("tel:+919677529252")
 
 # login page
 @app.route('/login')
@@ -66,7 +70,6 @@ def login():
 def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
-	print(userName, password)
 	user = User.query.filter_by(username=userName).first()
 	if user:
 		if user.password == password:
@@ -82,7 +85,8 @@ def course():
 	return render_template("course.html")
 @app.route('/online')
 def onlinet():
-    return render_template("online.html")
+	exam = ExamLink.query.first()
+	return render_template("online.html",link=exam.link)
 
 @app.route('/contact')
 def contact():
@@ -98,7 +102,7 @@ def gallery():
 # To Download course material by code
 @app.route('/return-files', methods=['POST'])
 def return_files_tut():
-	fileName = request.form['subjectcode'] + ".pdf"
+	fileName = request.form['subjectcode'].lower() + ".pdf"
 	try:
 		return send_file('notes/'+fileName, attachment_filename=fileName)
 	except Exception as e:
