@@ -18,7 +18,42 @@
 
       <!-- MAIN CSS -->
       <link rel="stylesheet" href="static/css/tooplate-style.css">
+<style>
+* {
+  box-sizing: border-box;
+}
 
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th, #myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+</style>
  </head>
  <body>
 
@@ -133,7 +168,7 @@
 
 							 
 							 <form class="example" action="/return-files" method="post">
-							   <input type="text" placeholder="Search.." name="subjectcode">
+							   <input type="text" placeholder="Type Subject Code.." name="subjectcode">
 							   <button type="submit"><i class="fa fa-search"></i></button>
 							 </form>
 
@@ -156,6 +191,61 @@
                 </div>
            </div>
       </section>
+	<br>
+	<br>
+
+	  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Subject code.." title="Type in a name">
+
+	  <table id="myTable">
+	    <tr class="header">
+	      <th style="width:60%;">Subject Name</th>
+	      <th style="width:40%;">Subject Code</th>
+	    </tr>
+	    <tr>
+	      <td>History</td>
+	      <td>arrow01</td>
+	    </tr>
+	    <tr>
+	      <td>Civics</td>
+	      <td>arrow02</td>
+	    </tr>
+	    <tr>
+	      <td>Question Paper - 1</td>
+	      <td>q1</td>
+	    </tr>
+	    <tr>
+	      <td>Question Paper - 2</td>
+	      <td>q2</td>
+	    </tr>
+	    <tr>
+	      <td>Question Paper - 3</td>
+	      <td>q3</td>
+	    </tr>
+	   
+	    <tr>
+	     
+	  </table>
+
+	  <script>
+	  function myFunction() {
+	    var input, filter, table, tr, td, i, txtValue;
+	    input = document.getElementById("myInput");
+	    filter = input.value.toUpperCase();
+	    table = document.getElementById("myTable");
+	    tr = table.getElementsByTagName("tr");
+	    for (i = 0; i < tr.length; i++) {
+	      td = tr[i].getElementsByTagName("td")[0];
+	      if (td) {
+	        txtValue = td.textContent || td.innerText;
+	        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+	          tr[i].style.display = "";
+	        } else {
+	          tr[i].style.display = "none";
+	        }
+	      }       
+	    }
+	  }
+	  </script>
 
 
     
