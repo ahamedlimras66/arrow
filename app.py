@@ -1,12 +1,13 @@
 import os
 from models.schema import *
 from flask_admin import Admin, AdminIndexView
-from flask import Flask, render_template, send_file, request, url_for, redirect
+from flask import Flask, render_template, send_file, request, url_for, redirect,send_from_directory
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
-app = Flask(__name__)
+
+app = Flask(__name__,static_folder='static')
 app.secret_key = 'my-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -47,12 +48,15 @@ admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
 
-
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 # Home page
 @app.route('/')
 def home():
 	return render_template("index.html")
+
 @app.route('/save_number', methods=['POST', 'GET'])
 def save_number():
 	number = Number(number=request.form['number'],name="unknow")
