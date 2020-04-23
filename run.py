@@ -1,5 +1,7 @@
 from app import app
 from db import db
+from models.schema import *
+
 
 db.init_app(app)
 
