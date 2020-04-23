@@ -18,32 +18,32 @@ login_manager.login_view = 'login'
 @app.before_first_request
 def create_tables():
 	db.create_all()
-	if User.query.filter_by(username="root").first() is None:
-		adminID = User(username="root", password="root",role=1)
+	if Users.query.filter_by(username="root").first() is None:
+		adminID = Users(username="root", password="root",role=1)
 		db.session.add(adminID)
 		db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
-	return User.query.get(int(user_id))
+	return Users.query.get(int(user_id))
 
 class MyAdminIndexView(AdminIndexView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+		if current_user.is_authenticated  and ((Users.query.filter_by(id=current_user.id).first()).role<=2):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
 class MyModelView(ModelView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+		if current_user.is_authenticated  and ((Users.query.filter_by(id=current_user.id).first()).role<=2):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
 
 admin = Admin(app, index_view=MyAdminIndexView())
-admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(Users, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
 
@@ -72,7 +72,7 @@ def login():
 def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
-	user = User.query.filter_by(username=userName).first()
+	User = Users.query.filter_by(username=userName).first()
 	if user:
 		if user.password == password:
 			login_user(user, remember=False)
