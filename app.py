@@ -72,7 +72,7 @@ def login():
 def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
-	User = Users.query.filter_by(username=userName).first()
+	user = Users.query.filter_by(username=userName).first()
 	if user:
 		if user.password == password:
 			login_user(user, remember=False)
