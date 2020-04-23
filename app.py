@@ -1,13 +1,13 @@
 import os
 from models.schema import *
 from flask_admin import Admin, AdminIndexView
-from flask import Flask, render_template, send_file, request, url_for, redirect,send_from_directory
+from flask import Flask, render_template, send_file, request, url_for, redirect,make_response
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
 
-app = Flask(__name__,static_folder='static')
+app = Flask(__name__, static_folder='static', static_url_path='')
 app.secret_key = 'my-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -50,7 +50,9 @@ admin.add_view(MyModelView(Number, db.session))
 
 @app.route('/sitemap.xml')
 def static_from_root():
-    return send_from_directory(app.static_folder, request.path[1:])
+	response = make_response(open('static/sitemap.xml').read())
+	response.headers["Content-type"] = "text/plain"
+	return response
 
 # Home page
 @app.route('/')
