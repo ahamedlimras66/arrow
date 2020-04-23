@@ -29,14 +29,14 @@ def load_user(user_id):
 
 class MyAdminIndexView(AdminIndexView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and (current_user.name =="root"):
+		if current_user.is_authenticated  and (current_user.role<3):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
 class MyModelView(ModelView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and ((Users.query.filter_by(id=current_user.id).first()).role<=2):
+		if current_user.is_authenticated  and (current_user.role<3):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
