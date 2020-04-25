@@ -4,7 +4,7 @@ from sqlalchemy import ForeignKey
 # from sqlalchem.sql import func
 
 
-class User(UserMixin, db.Model):
+class Users(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(15), unique=True, nullable=False)
     first_name = db.Column(db.String(20), nullable=True)

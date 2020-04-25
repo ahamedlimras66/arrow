@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- This is the parent sitemap linking to additional sitemaps for products, collections and pages as shown below. The sitemap can not be edited manually, but is kept up to date in real time. -->
+  <sitemap>
+    <loc>http://www.arrowcoaching.org/</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://www.arrowcoaching.org/login?next=%2Fcourse</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://www.arrowcoaching.org/achieve</loc>
+  </sitemap>
+  <sitemap>
+    <loc>http://www.arrowcoaching.org/contact</loc>
+  </sitemap>
+    <sitemap>
+    <loc>http://www.arrowcoaching.org/gallery</loc>
+  </sitemap>
+    <sitemap>
+    <loc>http://www.arrowcoaching.org/login</loc>
+  </sitemap>
+</sitemapindex>

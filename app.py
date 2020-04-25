@@ -1,12 +1,12 @@
 import os
 from models.schema import *
 from flask_admin import Admin, AdminIndexView
-from flask import Flask, render_template, send_file, request, url_for, redirect
+from flask import Flask, render_template, send_file, request, url_for, redirect, send_from_directory
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static')
 app.secret_key = 'my-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -18,37 +18,39 @@ login_manager.login_view = 'login'
 @app.before_first_request
 def create_tables():
 	db.create_all()
-	if User.query.filter_by(username="root").first() is None:
-		adminID = User(username="root", password="root",role=1)
+	if Users.query.filter_by(username="root").first() is None:
+		adminID = Users(username="root", password="root",role=1)
 		db.session.add(adminID)
 		db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
-	return User.query.get(int(user_id))
+	return Users.query.get(int(user_id))
 
 class MyAdminIndexView(AdminIndexView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+		if current_user.is_authenticated  and (current_user.role<3):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
 class MyModelView(ModelView):
 	def is_accessible(self):
-		if current_user.is_authenticated  and ((User.query.filter_by(id=current_user.id).first()).role<=2):
+		if current_user.is_authenticated  and (current_user.role<3):
 			return True
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
 
 admin = Admin(app, index_view=MyAdminIndexView())
-admin.add_view(MyModelView(User, db.session))
+admin.add_view(MyModelView(Users, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
 
 
-
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 # Home page
 @app.route('/')
 def home():
@@ -70,7 +72,7 @@ def login():
 def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
-	user = User.query.filter_by(username=userName).first()
+	user = Users.query.filter_by(username=userName).first()
 	if user:
 		if user.password == password:
 			login_user(user, remember=False)
