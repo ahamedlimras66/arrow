@@ -17,10 +17,9 @@ class Users(UserMixin, db.Model):
 class ExamLink(db.Model):
     exid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
-    link = db.Column(db.String(50))
+    link = db.Column(db.String(100))
 
 class Number(db.Model):
     numid = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=True)
+    name = db.Column(db.String(20), nullable=True)
     number = db.Column(db.Integer,unique=True)
-
