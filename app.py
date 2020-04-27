@@ -6,7 +6,6 @@ from flask import Flask, render_template, send_file, request, url_for, redirect,
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-from flask_security import utils
 
 app = Flask(__name__,static_folder='static')
 app.secret_key = 'my-secret-key'
