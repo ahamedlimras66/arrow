@@ -100,6 +100,8 @@ def course():
 @app.route('/online')
 def onlinet():
 	exam = ExamLink.query.first()
+	if exam is None:
+		return render_template("online.html")
 	return render_template("online.html",link=exam.link)
 
 @app.route('/contact')
