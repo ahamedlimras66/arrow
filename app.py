@@ -1,10 +1,12 @@
 import os
 from models.schema import *
+from werkzeug.security import check_password_hash, generate_password_hash
 from flask_admin import Admin, AdminIndexView
 from flask import Flask, render_template, send_file, request, url_for, redirect, send_from_directory
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+from flask_security import utils
 
 app = Flask(__name__,static_folder='static')
 app.secret_key = 'my-secret-key'
@@ -41,9 +43,13 @@ class MyModelView(ModelView):
 	def inaccessible_callback(self, name, **kwargs):
 		return redirect(url_for('login', next=request.url))
 
+class UserAdmin(ModelView):
+    def on_model_change(self, form, model, is_created):
+        model.password = generate_password_hash(model.password,method='sha256')
+
 
 admin = Admin(app, index_view=MyAdminIndexView())
-admin.add_view(MyModelView(Users, db.session))
+admin.add_view(UserAdmin(Users, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
 
@@ -79,7 +85,7 @@ def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
 	user = Users.query.filter_by(username=userName).first()
-	if user and user.password == password:
+	if user and check_password_hash(user.password, password):
 		login_user(user, remember=False)
 		if user.role <=2:
 			return redirect('admin')
