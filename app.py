@@ -20,7 +20,7 @@ login_manager.login_view = 'login'
 def create_tables():
 	db.create_all()
 	if Users.query.filter_by(username="root").first() is None:
-		adminID = Users(username="root", password="root",role=1)
+		adminID = Users(username="root", password=generate_password_hash("root",method='sha256'),role=1)
 		db.session.add(adminID)
 		db.session.commit()
 
