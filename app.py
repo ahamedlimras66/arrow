@@ -76,6 +76,9 @@ def loginCheck():
 	if user:
 		if user.password == password:
 			login_user(user, remember=False)
+			print(request.url)
+			if user.role <=2:
+				return redirect('admin')
 			return render_template("course.html")
 	else:
 		return render_template('login.html')
