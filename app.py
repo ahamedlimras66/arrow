@@ -57,10 +57,16 @@ def home():
 	return render_template("index.html")
 @app.route('/save_number', methods=['POST', 'GET'])
 def save_number():
-	number = Number(number=request.form['number'],name="unknow")
-	db.session.add(number)
-	db.session.commit()
-	return redirect("tel:+919677529252")
+	number = request.form['number']
+	print(Number.query.filter_by(number=number).first())
+	if Number.query.filter_by(number=number).first():
+		error = "Phone number already exist"
+		return render_template('index.html',error=error)
+	else:
+		number = Number(number=request.form['number'],name="unknow")
+		db.session.add(number)
+		db.session.commit()
+		return redirect("tel:+919677529252")
 
 # login page
 @app.route('/login')
@@ -73,15 +79,13 @@ def loginCheck():
 	userName = request.form['username']
 	password = request.form['password']
 	user = Users.query.filter_by(username=userName).first()
-	if user:
-		if user.password == password:
-			login_user(user, remember=False)
-			print(request.url)
-			if user.role <=2:
-				return redirect('admin')
-			return render_template("course.html")
-	else:
-		return render_template('login.html')
+	if user and user.password == password:
+		login_user(user, remember=False)
+		if user.role <=2:
+			return redirect('admin')
+		return render_template("course.html")
+	error = "Incorrect username or password"
+	return render_template('login.html',error=error)
 
 # course materials
 @app.route('/course')
@@ -111,7 +115,8 @@ def return_files_tut():
 	try:
 		return send_file('notes/'+fileName, attachment_filename=fileName)
 	except Exception as e:
-		return str(e)
+		error = "subject code is not found pleass check below"
+		return render_template("course.html",error=error)
 
 @app.route('/logout')
 @login_required
