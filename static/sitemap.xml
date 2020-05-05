@@ -1,22 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- This is the parent sitemap linking to additional sitemaps for products, collections and pages as shown below. The sitemap can not be edited manually, but is kept up to date in real time. -->
-  <sitemap>
-    <loc>http://www.arrowcoaching.org/</loc>
-  </sitemap>
-  <sitemap>
-    <loc>http://www.arrowcoaching.org/login?next=%2Fcourse</loc>
-  </sitemap>
-  <sitemap>
-    <loc>http://www.arrowcoaching.org/achieve</loc>
-  </sitemap>
-  <sitemap>
-    <loc>http://www.arrowcoaching.org/contact</loc>
-  </sitemap>
-    <sitemap>
-    <loc>http://www.arrowcoaching.org/gallery</loc>
-  </sitemap>
-    <sitemap>
-    <loc>http://www.arrowcoaching.org/login</loc>
-  </sitemap>
-</sitemapindex>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://www.arrowcoaching.org/</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/online</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/login?next=%2Fcourse</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/achieve</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/contact</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/gallery</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://www.arrowcoaching.org/login</loc>
+  <lastmod>2020-05-05T17:24:30+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
