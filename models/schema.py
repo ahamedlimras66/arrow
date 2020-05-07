@@ -22,4 +22,4 @@ class ExamLink(db.Model):
 class Number(db.Model):
     numid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=True)
-    number = db.Column(db.Integer,unique=True)
+    number = db.Column(db.String(10),unique=True)
