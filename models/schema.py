@@ -30,4 +30,4 @@ class Admission(db.Model):
     email = db.Column(db.String(50))
     phone_no = db.Column(db.String(10))
     dob = db.Column(db.String(10))
-    group = db.Column(db.String(10))
+    group = db.Column(db.String(50))
