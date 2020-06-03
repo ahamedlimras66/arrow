@@ -15,8 +15,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'idhayathinkuralmail@gmail.com'
-app.config['MAIL_PASSWORD'] = 'idhayathin123456'
+app.config['MAIL_USERNAME'] = 'arrowcoaching26@gmail.com'
+app.config['MAIL_PASSWORD'] = 'Mithran12'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -153,7 +153,7 @@ def apply_admission():
 							  group=request.form['group'])
 	db.session.add(new_admission)
 	db.session.commit()
-	msg = Message("hello", sender="arrowmail", recipients=['mm4.muthumani@gmail.com'])
+	msg = Message("hello", sender="arrowmail", recipients=['limraslim@gmail.com'])
 	msg.html = render_template("admissionmail.html",
 								name=new_admission.name,
 								mail=new_admission.email,
