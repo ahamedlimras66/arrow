@@ -23,3 +23,11 @@ class Number(db.Model):
     numid = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=True)
     number = db.Column(db.String(10),unique=True)
+
+class Admission(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    email = db.Column(db.String(20))
+    phone_no = db.Column(db.String(10))
+    dob = db.Column(db.String(10))
+    group = db.Column(db.String(10))
