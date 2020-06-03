@@ -10,7 +10,7 @@
       <meta name="keywords" content="">
       <meta name="team" content="">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-      
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" href="static/images/icona.png">
       <link rel="stylesheet" href="static/css/bootstrap.min.css">
       <link rel="stylesheet" href="static/css/owl.carousel.css">
@@ -19,70 +19,123 @@
 
       <!-- MAIN CSS -->
       <link rel="stylesheet" href="static/css/tooplate-style.css">
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
-}
-
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity: 1;
-}
-
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
-}
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}
-</style>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <style>
+      html, body {
+      min-height: 100%;
+      }
+      body, div, form, input, select, p { 
+      padding: 0;
+      margin: 0;
+      outline: none;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 16px;
+      color: #eee;
+      }
+      body {
+      background: url("/uploads/media/default/0001/01/b5edc1bad4dc8c20291c8394527cb2c5b43ee13c.jpeg") no-repeat center;
+      background-size: cover;
+      }
+      h1, h2 {
+      text-transform: uppercase;
+      font-weight: 400;
+      }
+      h2 {
+      margin: 0 0 0 8px;
+      }
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.5); 
+      }
+      .left-part, form {
+      padding: 25px;
+      }
+      .left-part {
+      text-align: center;
+      }
+      .fa-graduation-cap {
+      font-size: 72px;
+      }
+      form {
+      background: rgba(0, 0, 0, 0.7); 
+      }
+      .title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      }
+      .info {
+      display: flex;
+      flex-direction: column;
+      }
+      input, select {
+      padding: 5px;
+      margin-bottom: 30px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
+      }
+      input::placeholder {
+      color: #eee;
+      }
+      option:focus {
+      border: none;
+      }
+      option {
+      background: black; 
+      border: none;
+      }
+      .checkbox input {
+      margin: 0 10px 0 0;
+      vertical-align: middle;
+      }
+      .checkbox a {
+      color: #26a9e0;
+      }
+      .checkbox a:hover {
+      color: #85d6de;
+      }
+      .btn-item, button {
+      padding: 10px 5px;
+      margin-top: 20px;
+      border-radius: 5px; 
+      border: none;
+      background: #26a9e0; 
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 400;
+      color: #fff;
+      }
+      .btn-item {
+      display: inline-block;
+      margin: 20px 5px 0;
+      }
+      button {
+      width: 100%;
+      }
+      button:hover, .btn-item:hover {
+      background: #85d6de;
+      }
+      @media (min-width: 568px) {
+      html, body {
+      height: 100%;
+      }
+      .main-block {
+      flex-direction: row;
+      height: calc(100% - 50px);
+      }
+      .left-part, form {
+      flex: 1;
+      height: auto;
+      }
+      }
+    </style>
  </head>
  <body>
 
@@ -139,8 +192,8 @@ a {
 
                      <div class="col-md-offset-3 col-md-6 col-sm-12">
                           <div class="home-info">
-                               <h3>Admission Form</h3>
-
+                               <h1>Admission Form</h1>
+                               
 											 
 			                                 <br>
 			                                 <br>
@@ -169,67 +222,46 @@ a {
 	
       <div class="container">
 		 
-	
-        <div class="row">
-          <div class="col-lg-8 mb-5" >
-			  	<center> <h1>Contact Us</h1>
-					<br>
-					<br>
-            <form action="#" method="post">
-              <div class="form-group row">
-                <div class="col-md-6 mb-4 mb-lg-0">
-                  <input type="text" class="form-control" placeholder="First name">
-                </div>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="First name">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <input type="text" class="form-control" placeholder="Email address">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <div class="col-md-12">
-                  <textarea name="" id="" class="form-control" placeholder="Write your message." cols="30" rows="10"></textarea>
-				  
-                </div>
-              </div>
-			<br>
-		
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+				<div class="main-block">
+				      <div class="left-part">
+				        <i class="fas fa-graduation-cap"></i>
+				        <h1>Arrow Admission Form</h1>
+				        <h4><b>We Welcome You to Arrow Coaching Family ..</b></h4>
+				        
+				      </div>
+				      <form action="/">
+				        <div class="title">
+				         
+				          <h1>Register here</h1>
+				        </div>
+				        <div class="info">
+	 				    <label for="Name"><b>Name</b></label>
+	 				    <input type="text" placeholder="" name="Name" id="Name" required>
 					
-			   <center><input type="submit" class="btn btn-block btn-primary text-white py-3 px-5" value="Send Message"></center>
-              <div class="form-group row">
-                <div class="col-md-6 mr-auto">
-               
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="col-lg-4 ml-auto">
-            <div class="bg-white p-3 p-md-5">
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-             <center> <h2 class="text-black mb-4"><u>Contact Info</u></h2>
-              <ul class="list-unstyled footer-link">
-                <li class="d-block mb-3">
-                 <br>
-               
-                <li class="d-block mb-3"><span class="d-block text-black"><b>Email id :</span><br><span>satheesh2910@gmail.com</span></li>
-				<br>
+	 				    <label for="email"><b>Email</b></label>
+	 				    <input type="text" placeholder="" name="email" id="email" required>
+					
+	 				    <label for="number"><b>Phone no</b></label>
+	 				    <input type="text" placeholder="" name="number" id="number" required>
 				
-				 <li class="d-block mb-3"><span class="d-block text-black">Insta id :</span><br><span>arrowcoaching</span></li>
-				 <br>
-				  <li class="d-block mb-3"><span class="d-block text-black">Web site :</span><br><span>www.arrowcoaching.in</span></li>
- 				 <br>
- 				  <li class="d-block mb-3"><span class="d-block text-black">Address :</span><br><span>Arrow TNPSC Coaching Center<br> Nagercoil Road<br>Vazhukkamparai Junction.</span></li></center>
-              </ul>
-            </div>
+
+	 				    <label for="dob"><b>DOB</b></label>
+	 				    <input type="text" placeholder="" name="dob" id="dob" required>
+
+	 				    <label for="Group"><b>Selected Group</b></label>
+	 				    <input type="text" placeholder="" name="Group" id="Group" requirePhone>
+				          
+				        </div>
+				       
+				        <button type="submit" href="/">Submit</button>
+				      </form>
+				    </div>
+			  	
           </div>
         </div>
       </div>

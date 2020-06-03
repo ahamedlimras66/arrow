@@ -113,6 +113,9 @@ def achievement():
 @app.route('/gallery')
 def gallery():
     return render_template("gal.html")
+@app.route('/admission')
+def admission():
+    return render_template("admission.html")
    
 
 # To Download course material by code

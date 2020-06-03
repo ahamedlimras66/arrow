@@ -32,7 +32,38 @@
    	 }
 	 .button4 {border-radius: 12px;}
 	
-	 
+	 .button1 {
+	   border-radius: 4px;
+	   background-color: #f4511e;
+   	   border: none;
+   	   color: white;
+   	   padding: 20px;
+	 }
+
+	 .button1 span {
+	   cursor: pointer;
+	   display: inline-block;
+	   position: relative;
+	   transition: 0.5s;
+	 }
+
+	 .button1 span:after {
+	   content: '\00bb';
+	   position: absolute;
+	   opacity: 0;
+	   top: 0;
+	   right: -20px;
+	   transition: 0.5s;
+	 }
+
+	 .button1:hover span {
+	   padding-right: 25px;
+	 }
+
+	 .button1:hover span:after {
+	   opacity: 1;
+	   right: 0;
+	 } 
 
 #fade{
 display: none;
@@ -148,9 +179,16 @@ document.getElementById('fade').style.display='none';
                                    <input type="phonenumber" name="number" class="form-control" placeholder="Enter your Phone No" required="">
                                    <br>
                                    <br>
-                                   <br>
+                               
                                
 							   <input type="submit" class="button button4" value="To Contact" onClick="Submit" align="center">
+                               <br>
+                               <br>
+							   <a href="/admission" class="button button1">ADMISSION FORM</a>
+                               <br>
+                               <br>
+                               <br>
+							   
                               </form>
                          </div>
                     </div>
