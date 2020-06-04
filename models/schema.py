@@ -27,7 +27,7 @@ class Number(db.Model):
 class Admission(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40))
-    email = db.Column(db.String(20))
+    email = db.Column(db.String(50))
     phone_no = db.Column(db.String(10))
     dob = db.Column(db.String(10))
-    group = db.Column(db.String(10))
+    group = db.Column(db.String(50))
