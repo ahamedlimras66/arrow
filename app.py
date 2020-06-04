@@ -62,7 +62,6 @@ admin = Admin(app, index_view=MyAdminIndexView())
 admin.add_view(UserAdmin(Users, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
-admin.add_view(MyModelView(Admission,db.session))
 
 
 @app.route('/sitemap.xml')
