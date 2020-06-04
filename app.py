@@ -153,7 +153,7 @@ def apply_admission():
 							  group=request.form['group'])
 	db.session.add(new_admission)
 	db.session.commit()
-	msg = Message("hello", sender="arrowmail", recipients=['limraslim@gmail.com'])
+	msg = Message("hello", sender="arrowmail", recipients=['satheesh2910@gmail.com'])
 	msg.html = render_template("admissionmail.html",
 								name=new_admission.name,
 								mail=new_admission.email,
