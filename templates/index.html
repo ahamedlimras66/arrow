@@ -238,8 +238,8 @@ document.getElementById('fade').style.display='none';
     <p id="you2" class="you">&nbsp;</p>
     <p id="bot2" class="bot">&nbsp;</p>
 
-    <label for="msg"><b>Message</b></label>
-    <input placeholder="Type message.." name="msg" id="alltext">
+    <label for="msg"><b>Message</b></label><br>
+    <input placeholder="Type message.." name="msg" id="alltext"><br><br>
 
     <button type="button" class="btn" onclick="sendForm()">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -579,11 +579,20 @@ document.getElementById('fade').style.display='none';
                     case "hi":
                          ans = "Hi..Welcome to Arrow coaching.. How can i help you!";
                          break;
-                    case "name?":
+                    case "name":
                          ans = "I'm Arrow chat bot";
                          break;
+                     case "arrow":
+                          ans = "Arrow Coaching is a Coaching Institute for  TNPC , TET Exams ";
+                          break;
+                      case "contact":
+                           ans = "contact Mister Satheesh Kumar 9 6 7 7 5 2 9 2 5 2	";
+                           break;
+                       case "exam":
+                            ans = "For exam Update please check ... Online Exam in top menu ";
+                            break;
                     default:
-                         ans = "sorry.. i am confused.."
+                         ans = "sorry.. i am confused..For clarification please contact Mister Satheesh Kumar 9 6 7 7 5 2 9 2 5 2 "
                }
                if(last == 2){
                     last = 1
