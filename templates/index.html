@@ -237,7 +237,7 @@ document.getElementById('fade').style.display='none';
     <p id="bot" class="bot">&nbsp;</p>
 
     <label for="msg"><b>Message</b></label>
-    <textarea placeholder="Type message.." name="msg" id="alltext" required></textarea>
+    <input placeholder="Type message.." name="msg" id="alltext" required>
 
     <button type="button" class="btn" onclick="sendForm()">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
@@ -571,7 +571,7 @@ document.getElementById('fade').style.display='none';
 			  
                text = document.getElementById("alltext").value
                ans = ''
-               if (text == "hi","Hi","Hai","hai","hey","Hey"){
+               if (text == "hi"){
                     ans = "Hi..Welcome to Arrow coaching.. How can i help you!"
                }
                else{
