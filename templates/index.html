@@ -571,13 +571,16 @@ document.getElementById('fade').style.display='none';
 			  
                text = document.getElementById("alltext").value
                ans = ''
-               if (text == "hi"){
-                    ans = "Hi..Welcome to Arrow coaching.. How can i help you!"
+               switch(text.toLowerCase()){
+                    case "hi":
+                         ans = "Hi..Welcome to Arrow coaching.. How can i help you!";
+                         break;
+                    case "name?":
+                         ans = "I'm Arrow chat bot";
+                         break;
+                    default:
+                         ans = "sorry.. i am confused.."
                }
-               else{
-                    ans = "sorry.. i am confused.."
-               }
-               
                
                you.innerHTML ="You: "+text;
                bot.innerHTML = "Bot: ";
