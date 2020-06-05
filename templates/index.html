@@ -31,7 +31,25 @@
 		  font-size: 17px;
 		}
 
-
+		#chat-btn {
+		  width: 40px;
+		  height: 28px;
+		  background-color: white;
+		  border-radius: 4px;
+		  position: relative;
+		}
+		#chat-btn:after {
+		    content: "";
+		    display: block;
+		    position: absolute;
+		    width: 0;
+		    height: 0;
+		    right: 10px;
+		    bottom: -10px;
+		    border-left: 10px solid transparent;
+		    border-right: 2px solid transparent;
+		    border-top: 10px solid white;
+		}
 		
 		
 .open-button {
@@ -45,6 +63,7 @@
   bottom: 23px;
   right: 28px;
   width: 80px;
+  border-radius: 12px;
 }
 .chat-popup {
   display: none;
@@ -209,11 +228,10 @@ document.getElementById('fade').style.display='none';
 </body>
 
 
-<button class="open-button" onclick="openForm()">Chat</button>
 
 <div class="chat-popup" id="myForm">
   <form action="/action_page.php" class="form-container">
-    <h1>Chat</h1>
+   <center> <h3>CHAT</h3></center>
 
     <p id="you" class="you">&nbsp;</p>
     <p id="bot" class="bot">&nbsp;</p>
@@ -442,8 +460,13 @@ document.getElementById('fade').style.display='none';
                </div>
           </div>
      </section>
+	 
+	 
+	 
 	 <div class="nav.a">
-		 <button class="open-button" onclick="openForm()">CHAT</button>
+		
+		 
+		 <button class="open-button" onclick="openForm()"> <div id="chat-btn"></button></div>
 	   
 
 	 </div> 
@@ -545,14 +568,17 @@ document.getElementById('fade').style.display='none';
           })
 
           function sendForm(){
+			  
                text = document.getElementById("alltext").value
                ans = ''
                if (text == "hi","Hi","Hai","hai","hey","Hey"){
                     ans = "Hi..Welcome to Arrow coaching.. How can i help you!"
                }
                else{
-                    ans = "sorry what?"
+                    ans = "sorry.. i am confused.."
                }
+               
+               
                you.innerHTML ="You: "+text;
                bot.innerHTML = "Bot: ";
 
