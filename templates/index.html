@@ -230,18 +230,20 @@ document.getElementById('fade').style.display='none';
 
 
 <div class="chat-popup" id="myForm">
-  <form action="/action_page.php" class="form-container">
+  <div class="form-container">
    <center> <h3>CHAT</h3></center>
 
-    <p id="you" class="you">&nbsp;</p>
-    <p id="bot" class="bot">&nbsp;</p>
+    <p id="you1" class="you">&nbsp;</p>
+    <p id="bot1" class="bot">&nbsp;</p>
+    <p id="you2" class="you">&nbsp;</p>
+    <p id="bot2" class="bot">&nbsp;</p>
 
     <label for="msg"><b>Message</b></label>
-    <input placeholder="Type message.." name="msg" id="alltext" required>
+    <input placeholder="Type message.." name="msg" id="alltext">
 
     <button type="button" class="btn" onclick="sendForm()">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-  </form>
+  </div>
 </div>
      <!-- MENU -->
      <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
@@ -534,7 +536,8 @@ document.getElementById('fade').style.display='none';
 
 
      <script>
-          	  talking = true; //when false the speach function doesn't work
+          talking = true; //when false the speach function doesn't work
+          last = 2
 
           function Speech(say) {
                if ('speechSynthesis' in window && talking) {
@@ -571,6 +574,7 @@ document.getElementById('fade').style.display='none';
 			  
                text = document.getElementById("alltext").value
                ans = ''
+
                switch(text.toLowerCase()){
                     case "hi":
                          ans = "Hi..Welcome to Arrow coaching.. How can i help you!";
@@ -581,12 +585,25 @@ document.getElementById('fade').style.display='none';
                     default:
                          ans = "sorry.. i am confused.."
                }
-               
-               you.innerHTML ="You: "+text;
-               bot.innerHTML = "Bot: ";
+               if(last == 2){
+                    you1.innerHTML = you2.innerHTML
+                    bot1.innerHTML = bot2.innerHTML
+
+                    you2.innerHTML ="You: "+text;
+                    bot2.innerHTML = "Bot: ";
+                    last = 1
+               }
+               else{
+                    you1.innerHTML = you2.innerHTML
+                    bot1.innerHTML = bot2.innerHTML
+
+                    you2.innerHTML ="You: "+text;
+                    bot2.innerHTML = "Bot: ";
+                    last = 2
+               }
 
                var str = ans.split("");
-               var el = document.getElementById('bot');
+               var el = document.getElementById("bot2");
                (function animate(){
                     str.length>0?el.innerHTML+=str.shift():
                     clearTimeout(running);
