@@ -586,21 +586,18 @@ document.getElementById('fade').style.display='none';
                          ans = "sorry.. i am confused.."
                }
                if(last == 2){
-                    you1.innerHTML = you2.innerHTML
-                    bot1.innerHTML = bot2.innerHTML
-
-                    you2.innerHTML ="You: "+text;
-                    bot2.innerHTML = "Bot: ";
                     last = 1
                }
                else{
-                    you1.innerHTML = you2.innerHTML
-                    bot1.innerHTML = bot2.innerHTML
-
-                    you2.innerHTML ="You: "+text;
-                    bot2.innerHTML = "Bot: ";
                     last = 2
                }
+
+               // put last chat up
+               you1.innerHTML = you2.innerHTML
+               bot1.innerHTML = bot2.innerHTML
+               //show chat
+               you2.innerHTML ="You: "+text;
+               bot2.innerHTML = "Bot: ";
 
                var str = ans.split("");
                var el = document.getElementById("bot2");
