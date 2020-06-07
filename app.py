@@ -142,6 +142,10 @@ def gallery():
 @app.route('/admission')
 def admission():
     return render_template("admission.html")
+    
+@app.route('/quiz')
+def quiz():
+    return render_template("quiz.html")
 
 
 @app.route('/apply_admission', methods=['POST'])
