@@ -204,20 +204,37 @@
 			<br>
      
 	        <form id="quiz" name="quiz">
+		       	1)&nbsp;<img src="static/images/q1.jpg" alt="Girl in a jacket" width="400" height="200">
+				<br>
+				<br>
+		        <input type="radio" id="mc" name="question1" value="4321">4321<br>
+		        <input type="radio" id="mc" name="question1" value="3412">3412<br>
+		        <input type="radio" id="mc" name="question1" value="3421">3421<br>
+		        <input type="radio" id="mc" name="question1" value="1234">1234<br>
+				<br>
+				<br>
         
-	        <h4>1- HTML stands for Hypertext _______ Language.</h4>
-	        <input id="textbox" type="text" name="question1" placeholder="Ans">
-     
-	        <h4>2- Html element is the root element of an HTML           document.</h4>
-	        <input type="radio" id="mc" name="question2" value="true">true<br>
-	        <input type="radio" id="mc" name="question2" value="false">false<br>
-     
-	        <h4>3- Which tag is used to define the html images?</h4>
-	        <input type="radio" id="mc" name="question3" value="img">img<br>
-	        <input type="radio" id="mc" name="question3" value="src">src<br>
-	        <input type="radio" id="mc" name="question3" value="href">href<br>
-	        <input type="radio" id="mc" name="question3" value="alt">alt<br>
-     
+	       	2)&nbsp;<img src="static/images/q2.jpg" alt="Girl in a jacket" width="400" height="200">
+			<br>
+			<br>
+	        <input id="textbox" type="text" name="question2" placeholder="Ans">
+			
+	<br>
+	<br>
+	     	3)&nbsp;<img src="static/images/q3.jpg" alt="Girl in a jacket" width="400" height="200">
+			<br>
+			<br>
+	        <input type="radio" id="mc" name="question3" value="1">1<br>
+	        <input type="radio" id="mc" name="question3" value="2">2<br>
+	        <input type="radio" id="mc" name="question3" value="Null">Null<br>
+	        <input type="radio" id="mc" name="question3" value="1,2">1,2<br>
+			
+	4)&nbsp;<img src="static/images/q4.jpg" alt="Girl in a jacket" width="400" height="200">
+	<br>
+	<br>
+	       <input id="textbox" type="text" name="question4" placeholder="Ans">
+	<br>
+	<br>
      
 	        <input id="button" type="button" value="I'm finished!" onclick="check();">
      
@@ -280,26 +297,31 @@
 	   	 var question1=document.quiz.question1.value;
 	   	 var question2=document.quiz.question2.value;
 	   	 var question3=document.quiz.question3.value;
+		  var question4=document.quiz.question4.value;
 	   	 var correct=0;
 
 
-	   	     if (question1=="markup"){
+	   	     if (question1=="3412"){
 	   	         correct++;
 	   	   }
 
 
-	   	    if (question2=="true"){
+	   	    if (question2=="1995"){
 	   	        correct++;
 	   	   }  
 
 
-	   	   if (question3=="img"){
+	   	   if (question3=="Null"){
+	   	       correct++;
+	   	   }
+		   
+	   	   if (question4=="1950"){
 	   	       correct++;
 	   	   }
 
 
 	   	 var messages=["Great job!","That's just okay!","You really need to do better"];
-	   	 var pictures=["https://media1.giphy.com/media/11sBLVxNs7v6WA/giphy.gif","https://media1.giphy.com/media/Nm9hS20D4swVO/200w.gif","https://media.giphy.com/media/xUA7aRaGvA53VSlxUk/giphy.gif"];
+	   	 
 
 	   	 var range;
 
@@ -307,11 +329,11 @@
 	   	       range=2;
 	   	   }
   
-	   	   if(correct>0&&correct<3){
+	   	   if(correct>0&&correct<4){
 	   	       range=1;
 	   	   }
   
-	   	   if(correct>2){
+	   	   if(correct>3){
 	   	       range=0;
 	   	   }
 
@@ -321,7 +343,7 @@
 
 	   	 document.getElementById("messages").innerHTML=messages[range];
 	   	 document.getElementById("number_correct").innerHTML="&rarr;you got "+correct+" correct.";
-	   	 document.getElementById("pictures").src=pictures[range];
+	   
 
 
 	   	 }
