@@ -62,6 +62,7 @@ admin = Admin(app, index_view=MyAdminIndexView())
 admin.add_view(UserAdmin(Users, db.session))
 admin.add_view(MyModelView(ExamLink, db.session))
 admin.add_view(MyModelView(Number, db.session))
+admin.add_view(MyModelView(ImageUrl, db.session))
 
 
 @app.route('/sitemap.xml')
@@ -136,7 +137,8 @@ def achievement():
 
 @app.route('/gallery')
 def gallery():
-    return render_template("gal.html")
+	images = ImageUrl.query.all()
+	return render_template("gal.html",images=images)
 
 
 @app.route('/admission')

@@ -31,3 +31,8 @@ class Admission(db.Model):
     phone_no = db.Column(db.String(10))
     dob = db.Column(db.String(10))
     group = db.Column(db.String(50))
+
+class ImageUrl(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50))
+    url = db.Column(db.String(1000))
