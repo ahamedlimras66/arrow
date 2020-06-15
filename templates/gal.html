@@ -2,7 +2,7 @@
  <html lang="en">
  <head>
 
- 	<title>ARROW COACHING </title>
+ 	<title>ARROW </title>
 	
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -187,13 +187,7 @@
 	 <h2 style="text-align:center">Slideshow Gallery</h2>
 
 	 <div class="container">
-		 {% for image in images %}
-		 <div class="mySlides">
-			<div class="numbertext">{{image.id}}/{{images|length}}</div>
-				<img src={{image.url}} style="width:100%">
-		 </div>
-		 {% endfor %}
-	   <!-- <div class="mySlides">
+	   <div class="mySlides">
 	     <div class="numbertext">1 / 14</div>
 	     <img src="static/images/i.JPG" style="width:100%">
 	   </div>
@@ -204,7 +198,7 @@
 	   </div>
 
 	   <div class="mySlides">
-	     <div class="numbertext">3 / 14</div>	
+	     <div class="numbertext">3 / 14</div>
 	     <img src="static/images/i2.JPG" style="width:100%">
 	   </div>
     
@@ -246,7 +240,7 @@
 	   </div> <div class="mySlides">
 	     <div class="numbertext">14 / 14</div>
 	     <img src="static/images/i13.JPG" style="width:100%" >
-	   </div> -->
+	   </div>
 	<br>
 	<br>
 	<br>
@@ -259,12 +253,7 @@
 	   </div>
 
 	   <div class="row">
-			{% for image in images %}
-			<div class="column">
-				<img class="demo cursor" src={{image.url}} style="width:100%" onclick="currentSlide({{image.id}})" alt=""height="200" width="100">
-			</div>
-			{% endfor %}
-	     <!-- <div class="column">
+	     <div class="column">
 	       <img class="demo cursor" src="static/images/i.JPG" style="width:100%" onclick="currentSlide(1)" alt=""height="200" width="100">
 	     </div>
 	     <div class="column">
@@ -300,7 +289,7 @@
 	       <img class="demo cursor" src="static/images/i13.JPG" style="width:100%" onclick="currentSlide(14)" alt=""height="200" width="100">
 	     </div><div class="column">
 	       <img class="demo cursor" src="static/images/i14.JPG" style="width:100%" onclick="currentSlide(15)" alt=""height="200" width="100">
-	     </div> -->
+	     </div>
 	   </div>
 	 </div>
  </div>
