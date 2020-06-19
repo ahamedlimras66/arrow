@@ -20,6 +20,18 @@
      <link rel="stylesheet" href="static/css/tooplate-style.css">
 	<style>
 		
+		.ml15 {
+		  font-weight: 800;
+		  font-size: 3.8em;
+		  text-transform: uppercase;
+		  letter-spacing: 0.5em;
+		}
+
+		.ml15 .word {
+		  display: inline-block;
+		  line-height: 0em;
+		}
+		
 
 		.nav.a {
 		  float: left;
@@ -51,7 +63,19 @@
 		    border-top: 10px solid white;
 		}
 		
-		
+		.ml13 {
+		  font-size: 2em;
+		  text-transform: uppercase;
+		  letter-spacing: 0.5em;
+		  font-weight: 600;
+		   color: red;
+		}
+
+		.ml13 .letter {
+		  display: inline-block;
+		  line-height: 0em;
+		}
+			
 .open-button {
   background-color: red;
   color: white;
@@ -257,7 +281,7 @@ document.getElementById('fade').style.display='none';
                     </button>
 
                     <!-- lOGO TEXT HERE -->
-                    <a href="/" class="navbar-brand">ARROW COACHING CENTER</a>
+                    <a href="/" class="navbar-brand"><b>ARROW COACHING CENTER</b></a>
                </div>
 
                <!-- MENU LINKS -->
@@ -289,8 +313,18 @@ document.getElementById('fade').style.display='none';
 
                     <div class="col-md-offset-3 col-md-6 col-sm-12">
                          <div class="home-info">
-                              <h3>ARROW COACHING CENTER</h3>
+							 
+							 
+							 <h1><b>ARROW</b></h1>
+                             <h3><b>COACHING CENTER</b></h3>
                               <h1>We Help You To Reach Your Dream Successfully!</h1>
+							  
+							  
+			<h1 class="ml13" style="color:Tomato;" ><b>ADMISSION GOING ON</b></h1>
+
+							  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+							  
+							  
                               <h3 style="color:red">{{ error }}</h3>
                               <form action="/save_number" method="POST" class="online-form">
                                    <input type="phonenumber" name="number" class="form-control" placeholder="Enter your Phone No" required="">
@@ -597,6 +631,9 @@ document.getElementById('fade').style.display='none';
                        case "exam":
                             ans = "For exam Update please check ... Online Exam in top menu ";
                             break;
+                        case "thanks":
+                             ans = "Welcome .";
+                            break;
                     default:
                          ans = "sorry.. i am confused..For clarification please contact Mister Satheesh Kumar 9 6 7 7 5 2 9 2 5 2 "
                }
@@ -626,6 +663,38 @@ document.getElementById('fade').style.display='none';
                Speech(ans)
 
 }
+
+
+
+
+
+
+
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml13');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml13 .letter',
+    translateY: [100,0],
+    translateZ: 0,
+    opacity: [0,1],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: (el, i) => 300 + 30 * i
+  }).add({
+    targets: '.ml13 .letter',
+    translateY: [0,-100],
+    opacity: [1,0],
+    easing: "easeInExpo",
+    duration: 1200,
+    delay: (el, i) => 100 + 30 * i
+  });
+
+
+
+
           </script>
 
      <!-- SCRIPTS -->
