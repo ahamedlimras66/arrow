@@ -75,6 +75,18 @@
 		  display: inline-block;
 		  line-height: 0em;
 		}
+		.ml1 {
+		  font-size: 2em;
+		  text-transform: uppercase;
+		  letter-spacing: 0.5em;
+		  font-weight: 600;
+		   color: red;
+		}
+
+		.ml1 .letter {
+		  display: inline-block;
+		  line-height: 0em;
+		}
 			
 .open-button {
   background-color: red;
@@ -320,9 +332,14 @@ document.getElementById('fade').style.display='none';
                               <h1>We Help You To Reach Your Dream Successfully!</h1>
 							  
 							  
-			<h1 class="ml13" style="color:Tomato;" ><b>ADMISSION &nbsp;GOING ON</b></h1>
+			<h1 class="ml13" style="color:Tomato;" ><b>ADMISSION</b></h1>
 
 							  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+							   
+				   			<h1 class="ml1" style="color:Tomato;" ><b>GOING ON </b></h1>
+
+				   							  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+							   
 							  
 							  
                               <h3 style="color:red">{{ error }}</h3>
@@ -691,6 +708,28 @@ anime.timeline({loop: true})
     duration: 1200,
     delay: (el, i) => 100 + 30 * i
   });
+
+
+  var textWrapper = document.querySelector('.ml1');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml1 .letter',
+      translateY: [100,0],
+      translateZ: 0,
+      opacity: [0,1],
+      easing: "easeOutExpo",
+      duration: 1400,
+      delay: (el, i) => 300 + 30 * i
+    }).add({
+      targets: '.ml1 .letter',
+      translateY: [0,-100],
+      opacity: [1,0],
+      easing: "easeInExpo",
+      duration: 1200,
+      delay: (el, i) => 100 + 30 * i
+    });
 
 
 
